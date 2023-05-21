@@ -6,6 +6,10 @@ import {currencyByRupee} from './constant';
 import CurrencyButton from './components/CurrencyButton';
 import Snackbar from 'react-native-snackbar';
 
+// app center  for hosting there 
+
+
+
 const App = (): JSX.Element => {
   const [inputValue, setInputValue] = useState('');
   const [resultValue, setResultValue] = useState('');
