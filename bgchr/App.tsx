@@ -1,76 +1,41 @@
+import React from 'react';
+import { View, Image, Dimensions } from 'react-native';
+import Carousel from 'react-native-reanimated-carousel';
+import FastImage from 'react-native-fast-image';
 
-import React, { useState } from 'react';
+const images = [
+  require('./assets/image1.jpg'),
+  require('./assets/image2.jpg'),
+  require('./assets/image3.jpg'),
+];
 
-import {
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+const carouselWidth = viewportWidth;
+const carouselHeight = viewportHeight * 0.3;
 
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
-
-
-
-
-
-
-function App(): JSX.Element {
-  const [randomBackground, setRandomBackground] = useState("#FFFFFF")
-
-  const generateColor =()=>{
-    const hexRange ="0123456789ABCDEF";
-    let color="#"
-    for(let i= 0;i<6;i++){
-      color += hexRange[Math.floor(Math.random()*16)] 
-    }
-    setRandomBackground(color)
-  }
-
-  
+const CarouselExample = () => {
   return (
-    <>
-   
-
-
-      <StatusBar backgroundColor={randomBackground} />
-      <View style={[styles.container,{backgroundColor:randomBackground}]}>
-  
-
-        <TouchableOpacity onPress={generateColor}>
-          <View style={styles.actionBtn}>
-            <Text style={styles.actionBtnTxt}>
-              press me
-            </Text>
+    <View>
+      <Carousel
+        width={carouselWidth}
+        height={carouselHeight}
+        animate={false}
+        indicatorColor="#FFFFFF"
+        indicatorSize={20}
+        indicatorSpace={15}
+      >
+        {images.map((image, index) => (
+          <View key={index}>
+            <FastImage
+              style={{ width: carouselWidth, height: carouselHeight }}
+              source={image}
+              resizeMode={FastImage.resizeMode.cover}
+            />
           </View>
-        </TouchableOpacity>
-      </View>
-
-    </>
-
+        ))}
+      </Carousel>
+    </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  actionBtn: {
-    borderRadius: 12,
-    backgroundColor: '#6A1B4D',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
-
-  }, actionBtnTxt: {
-    fontSize: 24,
-    color: '#FFFFFF',
-    textTransform: 'uppercase',
-
-  }
-});
-
-export default App;
+export default CarouselExample;
