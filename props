@@ -1,0 +1,37 @@
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+
+const App = () => {
+  const [name, setName] = useState("");
+  return (
+    <View>
+      <Text>App</Text>
+      <Text style={{ fontSize: 20, marginTop: 20 }}> {name} </Text>
+
+      <TextInput
+        style={styles.textinput}
+        onChangeText={(e) =>setName(e)}
+        value={name}
+        placeholder="this is input box"
+      />
+      <Button title="clear text input" onPress={() => setName("")} />
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  textinput: {
+    marginTop: 20,
+    backgroundColor: "white",
+    width: "80%",
+    height: 60,
+    borderWidth: 2,
+    borderColor: "blue",
+    borderRadius: 10,
+    marginLeft: 40,
+    fontSize: 20,
+    alignItems: "center",
+  },
+});
