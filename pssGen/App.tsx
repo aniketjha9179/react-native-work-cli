@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Formik } from 'formik';
-import { Value } from 'sass';
+// import { Value } from 'sass';
 
 const PasswordSchema = Yup.object().shape({
   passwordLength: Yup.number()
