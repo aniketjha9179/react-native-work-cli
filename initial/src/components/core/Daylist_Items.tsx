@@ -1,11 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Daylist_Items = () => {
+const Daylist_Items = (props:any) => {
+  console.log(props);
+  
   return (
     <>
         <View style={styles.box}>
-            <Text style={styles.text}> 1 </Text>
+            <Text style={styles.text}> {props.day} </Text>
           </View>
     </>
   )
