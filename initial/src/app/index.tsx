@@ -1,14 +1,14 @@
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
-import Daylist_Items from "./src/components/core/Daylist_Items";
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
+import { AmaticSC_400Regular, AmaticSC_700Bold } from '@expo-google-fonts/amatic-sc';
+import { Inter_900Black, useFonts } from '@expo-google-fonts/inter';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from "react";
-import {AmaticSC_400Regular, AmaticSC_700Bold} from '@expo-google-fonts/amatic-sc'
+import { FlatList, StyleSheet, View } from "react-native";
+import Daylist_Items from '../../src/components/core/Daylist_Items';
 
 
 SplashScreen.preventAutoHideAsync();
 
-export default function App() {
+export default function HomeScreen() {
   const days =[ ...Array(24)].map((val, index)=>index+1);
   const [fontsLoaded, fontError]= useFonts({
       Inter:Inter_900Black,
