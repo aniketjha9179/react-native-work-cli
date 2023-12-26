@@ -7,7 +7,7 @@ type DayListItem = {
 };
 const Daylist_Items = ({ day }: DayListItem) => {
   return (
-    <Link href={`/days/day${day}` } asChild>
+    <Link href={`/day${day}` } asChild>
       <Pressable  style={styles.box}>
         <Text style={styles.text}> {day} </Text>
       </Pressable>
