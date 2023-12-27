@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   content:{
     gap:10,
     padding:10,    
+    // direction:'inherit'
   },
 
 });
